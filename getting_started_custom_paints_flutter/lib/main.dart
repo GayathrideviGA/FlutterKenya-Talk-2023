@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getting_started_custom_paint_flutter/graph_painter.dart';
 
 void main() {
   runApp(const FirstPaint());
@@ -13,11 +14,24 @@ class FirstPaint extends StatefulWidget {
 }
 
 class _FirstPaintState extends State<FirstPaint> {
+  final dataPoints = [
+    const Offset(50, 100),
+    const Offset(100, 50),
+    const Offset(150, 200),
+    const Offset(200, 150),
+    const Offset(250, 100),
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: CustomPaint(
-        painter: DrawALine(),
+      home: Scaffold(
+        body: Center(
+          child: SizedBox(
+            width: 600,
+            height: 600,
+            child: GraphWidget(dataPoints),
+          ),
+        ),
       ),
     );
   }
